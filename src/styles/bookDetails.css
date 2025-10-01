@@ -1,0 +1,100 @@
+@import url(globals.css);
+
+/*#1F1645*/
+
+.bookDetailsWrapper {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.bookDetailsWrapper.open {
+  transform: translateX(0);
+}
+
+
+.bookDetails {
+  background: linear-gradient(
+    to left,
+    var(--background),
+    #362a71
+  );
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  overflow-y: auto;
+  max-height: calc(100vh - 160px);
+  box-sizing: border-box;
+}
+
+.bookDetailsClose {
+  display: flex;
+}
+
+.bookDetailsClose button {
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  border: none;
+  background-color: var(--color-orange);
+  color: var(--color-white);
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  filter: brightness(80%)
+}
+
+.bookDetailsPanel {
+  background-color: var(--color-pink);
+  color: black;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bookDetailsPanel div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bookDetailsPanel button {
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.bookDetailsPanel button.bg-red-500 {
+  color: black;
+  border: none;
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
+}
+
+.bookDetailsPanel button.bg-red-500:hover {
+  filter:brightness(80%)
+}
+
+.bookDetailsPanel button.bg-green-500 {
+  color: black;
+  border: none;
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
+}
+
+.bookDetailsPanel button.bg-green-500:hover {
+  filter:brightness(80%)
+}
+
+.descriptionPanel {
+  border-radius: 10px;
+  padding: 1rem;
+  background-color: white;
+  color: black;
+}
+

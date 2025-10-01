@@ -1,0 +1,55 @@
+.header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--background);
+  filter: brightness(90%);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.profile-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-orange);
+}
+
+.user-name {
+  font-weight: bold;
+}
+
+.header-center {
+  text-align: center;
+  margin-left: -15%;
+  flex: 1;
+}
+
+.app-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1.8rem;
+}
+
+.app-logo {
+  filter: brightness(0) invert(1);
+}
+
+.app-text {
+  color: var(--foreground);
+  font-weight: bold;
+}
+
+.app-subtitle {
+  font-size: 0.9rem;
+  margin: 0;
+  color: #666;
+}

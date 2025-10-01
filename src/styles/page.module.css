@@ -1,0 +1,128 @@
+@import url("globals.css");
+
+.page {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family);
+  background-color: var(--background);
+}
+
+.main {
+  flex: 1;
+  flex-direction: row;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.sectionRed,
+.sectionGreen,
+.sectionBlue {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  overflow-y: auto;
+  max-height: calc(100vh - 160px);
+  box-sizing: border-box;
+  background-color: var(--background);
+}
+
+.sectionRed .sectionTitle,
+.sectionGreen .sectionTitle{
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(
+    to left,
+    var(--color-purple) 10%,
+    var(--color-pink) 30%,
+    var(--color-pink) 80%,
+    var(--color-purple) 90%
+  ) 1;
+} 
+
+.sectionTitle {
+  position: relative;
+  text-align: center;
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: var(--color-light-blue);
+  font-weight: bold;
+}
+
+/* .sectionTitle::after {
+  background: radial-gradient(
+    ellipse at center,
+    var(--color-pink) 30%,
+    transparent 100%
+  );
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 12px;
+  border-radius: 50%;
+  opacity: 0.4;
+} */
+
+
+.cardList {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 0;
+}
+
+.cardList::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: -20px;
+  right: -20px;
+  bottom: -15;
+  z-index: -1;
+  border-radius: 12px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-purple) 5px,
+    var(--color-pink) 150px,
+    var(--color-pink) 220px,
+    var(--color-pink) 300px,
+    var(--color-purple) 100%
+  );
+}
+
+.bookCard:first-of-type {
+  margin-top: 2%;
+}
+
+.bookCard {
+  background-color: var(--color-purple);
+  padding: 1rem;
+  border-radius: 12px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.bookCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.bookCard button {
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
