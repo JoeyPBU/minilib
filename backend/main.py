@@ -108,3 +108,31 @@ def remove_book_from_reader(reader_id: int, book_id: int, db: Session = Depends(
         reader.books.remove(book)
         db.commit()
     return {"message": f"Book {book.book_name} removed from reader {reader.reader_name}"}
+
+@app.get("/api/readers/{reader_id}/stats")
+def get_reader_stats(reader_id: int, db: Session = Depends(get_db)):
+    """Return statistics for a given user. Including: Total Books, Series Count, Longest Series"""
+    reader = db.query(Reader).filter(Reader.reader_id == reader_id).first()
+    if not reader:
+        raise HTTPException(status_code=404, detail="Reader not found")
+
+    total_books = len(reader.books)
+
+    series_count = {}
+    for book in reader.books:
+        if book.series:
+            series_name = book.series.series_name
+            series_count[series_name] = series_count.get(series_name, 0) + 1
+
+    total_series = len(series_count)
+    longest_series = None
+    if series_count:
+        longest_series = max(series_count, key=series_count.get)
+
+    return {
+        "reader_id": reader.reader_id,
+        "reader_name": reader.reader_name,
+        "total_books": total_books,
+        "total_series": total_series,
+        "longest_series": longest_series,
+    }

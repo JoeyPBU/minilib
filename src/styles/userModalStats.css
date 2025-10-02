@@ -1,0 +1,56 @@
+.stats-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+
+.stats-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.stats-modal {
+  position: relative;
+  background: var(--color-white);
+  color: var(--color-black);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 24rem;
+  max-width: 90%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.stats-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.stats-loading,
+.stats-error {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.stats-close-btn {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: var(--color-orange);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.stats-close-btn:hover {
+  filter: brightness(80%)
+}
