@@ -1,0 +1,26 @@
+# Set base image and working directory
+FROM node:20-alpine AS builder
+WORKDIR /app
+
+# Copy dependency files and install
+COPY package*.json ./
+RUN npm install
+
+# Copy Source code
+COPY . .
+
+# Build App
+RUN npm run build
+
+# Stage App again?
+FROM node:20-alpine
+WORKDIR /app
+
+# Copy build artifacts from builder
+COPY --from=builder /app ./
+
+# Expose Next.js port
+EXPOSE 3000
+
+# Start the App
+CMD ["npm", "start"]
