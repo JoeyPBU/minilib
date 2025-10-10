@@ -6,8 +6,7 @@
 Booknook is a simple, personal, library managemnet system.
 
 ## Tech Stack
-**Frontend:** Next.js, TypeScript, CSS
-
+**Frontend:** Next.js, TypeScript, CSS  
 **Backend:** FastAPI, SQLAlchemy, SQLite
 
 ---
@@ -20,4 +19,6 @@ Over time, I hope to expand this simple library with more functions and imrpoved
 
 ---
 
-Run with `npm run dev` for concurrent backend and frontend.
+Run fullstack with `docker compose up --build`  
+Frontend (Next.js, Node 20) at http://localhost:3000/  
+Backend (Fast API, Python 1.13) at http://127.0.0.1:8000/  
