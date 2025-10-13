@@ -4,6 +4,9 @@
   padding: 1rem;
   text-align: center;
   font-size: 0.9rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 .footer-title {
