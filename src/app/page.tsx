@@ -46,10 +46,10 @@ export default function Home(): any {
  */
   const fetchLibraries = async (): Promise<void> => {
     try {
-      const resBooks = await fetch("http://127.0.0.1:8000/api/books");
+      const resBooks = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/books`);
       const allBooks: Book[] = await resBooks.json();
 
-      const resReaders = await fetch("http://127.0.0.1:8000/api/readers");
+      const resReaders = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/readers`);
       const readers = await resReaders.json();
 
       setTotalReaders(readers.length);
@@ -99,7 +99,7 @@ export default function Home(): any {
    * @returns {Promise<void>} A promise that resolves when the book is added and state is refreshed.
    */
   const addBook = async (book_id: number): Promise<void> => {
-    await fetch(`http://127.0.0.1:8000/api/readers/${USER_ID}/books/${book_id}/add`, {
+    await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/readers/${USER_ID}/books/${book_id}/add`, {
       method: "POST",
     });
     fetchLibraries();
@@ -113,7 +113,7 @@ export default function Home(): any {
    * @returns {Promise<void>} A promise that resolves when the book is removed and state is refreshed.
    */
   const removeBook = async (book_id: number): Promise<void> => {
-    await fetch(`http://127.0.0.1:8000/api/readers/${USER_ID}/books/${book_id}/remove`, {
+    await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/readers/${USER_ID}/books/${book_id}/remove`, {
       method: "POST",
     });
     fetchLibraries();

@@ -36,7 +36,7 @@ const UserStatsModal: React.FC<UserStatsModalProps> = ({ readerId, isOpen, onClo
   useEffect(() => {
     if (isOpen) {
       setLoading(true);
-      fetch(`http://localhost:8000/api/readers/${readerId}/stats`)
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/readers/${readerId}/stats`)
         .then((res) => res.json())
         .then((data) => {
           setStats(data);

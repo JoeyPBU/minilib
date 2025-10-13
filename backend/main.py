@@ -1,9 +1,13 @@
+import os
 from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
 from .database import SessionLocal
 from .models import Author, Book, BookSeries, Reader
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import HTTPException
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI(title="Library API")
 
@@ -15,14 +19,10 @@ def get_db():
     finally:
         db.close()
 
-origins = [
-    "http://localhost:3000", 
-    "http://127.0.0.1:3000"
-]
-
+allowed_origins = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000").split(",")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
