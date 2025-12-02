@@ -3,7 +3,7 @@
 
 ---
 
-Booknook is a simple, personal, library managemnet system.
+Booknook is a simple, personal, library management system.
 
 ## Tech Stack
 **Frontend:** Next.js, TypeScript, CSS  
@@ -12,7 +12,7 @@ Booknook is a simple, personal, library managemnet system.
 ---
 
 ## Project Plans:
-Over time, I hope to expand this simple library with more functions and imrpoved features.
+Over time, I hope to expand this simple library with more functions and improved features.
  - Expand Users, including Sign In/Sign Up pages (Currently hardcoded to 1 main user)
  - Expand Search and Filter terms (Immediate: Date Added(Personal Lib), Date Published)
  - Add Progress to books (Unread, Started, Finished) 
